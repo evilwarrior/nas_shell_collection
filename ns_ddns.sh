@@ -56,7 +56,7 @@ if [ "$CUR_IP" != "$KNOWN_IP" ]; then
     if [ -n "$RECORD_ID" ]; then
         curl -s "https://www.namesilo.com/api/dnsUpdateRecord?version=1&type=xml&key=$APIKEY&domain=$DOMAIN&rrid=$RECORD_ID&rrhost=$HOST&rrvalue=$CUR_IP&rrttl=3600" > $RESPONSE
     else
-        curl -r "https://www.namesilo.com/api/dnsAddRecord?version=1&type=xml&key=$APIKEY&domain=$DOMAIN&rrtype=AAAA&rrhost=$HOST&rrvalue=$CUR_IP&rrttl=3600" > $RESPONSE
+        curl -s "https://www.namesilo.com/api/dnsAddRecord?version=1&type=xml&key=$APIKEY&domain=$DOMAIN&rrtype=AAAA&rrhost=$HOST&rrvalue=$CUR_IP&rrttl=3600" > $RESPONSE
     fi
     ## Exit if add/update record failed
     ERRNO=$?
