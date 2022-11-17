@@ -29,7 +29,7 @@ RESPONSE="/tmp/namesilo_response.xml"
 
 ##Get the current public IP by localhost
 #  mngtmpaddr - kernel manage temporary address on behalf of Privacy Extensions (RFC3041) for hiding fixed address.
-CUR_IP=`ip addr show $IF_NAME | grep mngtmpaddr | grep -oP '(?<=inet6 ).*?(?=/64)'`
+CUR_IP=`ip addr show $IF_NAME | grep mngtmpaddr | grep -oP '(?<=inet6 ).*?(?=/64)' | sed -n '1p'`
 ## Exit if CUR_IP is not IPv6
 if [[ ! $CUR_IP =~ $RE ]]; then
     logger -t ns_ddns -- CUR_IP{$CUR_IP} is not IPv6!
