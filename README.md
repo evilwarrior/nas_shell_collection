@@ -9,3 +9,5 @@ NAS使用的一些脚本
 动态更新IPv6防火墙设置
 
 Transmission (Docker)屏蔽指定客户端Leecher
+
+通过API统计Outlook邮件数量
